@@ -7,6 +7,10 @@
 
 
 {% block main %}
+
+{% static 'img/contact-bg.jpg' as contact_bg %}
+{% include 'includes/banner.html'  with banner_image=contact_bg banner_title='Contact page' banner_description='welcome to contact page' %}
+
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

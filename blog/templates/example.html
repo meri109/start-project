@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+
+<body>
+    
+  {% for user in users  %}
+  {% if forloop.first %}
+  
+  <div style='background-color:red'>
+
+      <h1>{{user.name}}</h1>
+      <h1>{{user.job |truncatechars:7}}</h1>
+      <h1>{{user.age}}</h1>
+
+  </div>
+
+  {% elif forloop.last %}
+  <div style='background-color:orange'>
+
+    <h1>{{user.name}}</h1>
+    <h1>{{user.job |truncatechars:7}}</h1>
+    <h1>{{user.age}}</h1>
+
+</div>
+
+  {% endif %}
+
+
+
+  
+  
+  {% endfor %}  
+</body>
+</html>

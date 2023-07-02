@@ -44,24 +44,35 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand" href="{% url 'info:about' %}">Start Bootstrap</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="{% url 'info:about' %}">Home</a>
                     </li>
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="{% url 'blog:article_blog' %}">Sample Post</a>
                     </li>
                     <li>
-                        <a href="post.html">Sample Post</a>
+                        <a href="{% url 'info:contacts' %}">Contact</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'user:logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'user:login' %}">Login</a>
+
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="{% url 'user:register' %}">Register</a>
                     </li>
+                    
+                    {% endif %}
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -71,19 +82,19 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('{% static 'img/about-bg.jpg' %}')">
+    {% comment %} <header class="intro-header" style="background-image: url('{% static 'img/about-bg.jpg' %}')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="page-heading">
-                        <h1>About Me</h1>
+                        <h1>Home</h1>
                         <hr class="small">
                         <span class="subheading">This is what I do.</span>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </header> {% endcomment %}
 
     {% block main %}{% endblock main %}
 

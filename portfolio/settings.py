@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'info',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -79,8 +80,12 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+         'NAME': 'data_py',
+         'USER': 'postgres',
+         'PASSWORD': 'qoncha1993',
+         'HOST': 'localhost',
+         'PORT': '5432'
     }
 }
 
@@ -123,6 +128,9 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS=[
     BASE_DIR / 'static',
 ]
+
+MEDIA_URL='media/'
+MEDIA_ROOT=BASE_DIR.parent /  'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

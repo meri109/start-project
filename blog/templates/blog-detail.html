@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block main %}
+
+{% static 'img/post-bg.jpg' as blog_bg %}
+{% include 'includes/banner.html'  with banner_image=blog_bg banner_title='Details' %}
+
+<!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <h1>{{article.title}}</h1>
+
+                    <h5>{{article.description}}</h5>
+
+                    <h2>{{article.created}}</h2>
+
+                    <a href="#">
+                        <img class="img-responsive" width='600px' height='500px' src={{article.image.url}} alt="">
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </article>
+
+    {% endblock main %}
+
